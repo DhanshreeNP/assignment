@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/materialize.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="./js/materialize.js"></script>
+        <script>
+            $('document').ready(function() {
+                var str = `<thead><tr><th>Id</th><th>Name</th><th>Username</th><th>Email</th><th>Street</th><th>Suite</th><th>City</th><th>Zipcode</th><th>Phone</th></tr></thead>`;
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/users",
+                    success: function(users) {
+                        str += "<tbody>";
+                        for(user of users){
+                            str += `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.username}</td><td>${user.email}</td><td>${user.address.street}</td><td>${user.address.suite}</td><td>${user.address.city}</td><td>${user.address.zipcode}</td><td>${user.phone}</td></tr>`;
+                        }
+                        str += "</tbody>"
+                        $('#dynamicData').html(str);
+                    }
+                });
+            });
+        </script>
+        <title>Dynamic data from api</title>
+    </head>
+    <body>
+        <div class="container">
+                <table class="striped centered responsive-table" id="dynamicData"></table>
+        </div>
+    </body>
+</html>

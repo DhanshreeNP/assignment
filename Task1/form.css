@@ -1,0 +1,40 @@
+label{
+    width: 180px;
+    clear: left;
+    padding-right: 10px;
+}
+h1{
+    font-size: 39px;
+    text-shadow: 1.5px 1.5px #000;
+}
+.container{
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+}
+.row{
+    padding-bottom: 15px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.col-full{
+    width: 100%;
+}
+
+.col-half{
+    width: 47%;
+    display: inline-block;
+}
+
+.form-control{
+    width: 90%;
+}
+form{
+    padding-left: 5%;
+}
+/*
+input,label
+    {
+        float: left;
+    }*/

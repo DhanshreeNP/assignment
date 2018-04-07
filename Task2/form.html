@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/materialize.css">
+        <script src="./js/materialize.js"></script>
+        <title>Personal details form</title>
+    </head>
+    <body bgcolor="#e8f5e9">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h4>Fill in your personal details</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Surname</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="mobile" type="number" class="validate">
+                                <label for="mobile">Mobile Number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Date of Birth</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m4">
+                                <select id="day">
+                                    <option value="" disabled selected>Choose a date</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                </select>
+                                <label for="day">Date</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <select id="month">
+                                    <option value="" disabled selected>Choose a month</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                                <label for="month">Month</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <select id="year">
+                                    <option value="" disabled selected>Choose a year</option>
+                                    <option>1991</option>
+                                    <option>1992</option>
+                                    <option>1993</option>
+                                    <option>1994</option>
+                                    <option>1995</option>
+                                </select>
+                                <label for="year">Year</label>
+                            </div>
+                            <script>
+                                var elem = document.querySelector('#day');
+                                var instance = M.FormSelect.init(elem);
+                                elem = document.querySelector('#month');
+                                instance = M.FormSelect.init(elem);
+                                elem = document.querySelector('#year');
+                                instance = M.FormSelect.init(elem);
+                            </script>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Gender</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>
+                                    <input class="with-gap" name="gender" type="radio" checked />
+                                    <span>Female</span>
+                                </label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>
+                                    <input class="with-gap" name="gender" type="radio" />
+                                    <span>Male</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large blue" type="submit" name="action">
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

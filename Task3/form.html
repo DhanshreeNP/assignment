@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/materialize.css">
+        <style>
+            .err{
+                border-radius: 2px;
+                margin: 5px 0px 5px 0px;
+                padding-left: 5px;
+            }
+        </style>
+        <script src="./js/materialize.js"></script>
+        <script>
+            function validate(event) {
+                var doSubmit = true;
+                var fname = document.getElementById('first_name').value;
+                var sname = document.getElementById('last_name').value;
+                var mobile = document.getElementById('mobile').value;
+                var email = document.getElementById('email').value;
+                var pwd = document.getElementById('password').value;
+                var day = document.getElementById('day').value;
+                var month = document.getElementById('month').value;
+                var year = document.getElementById('year').value;
+                var gender = document.getElementsByName('gender');
+                if (fname === "" || fname === null) {
+                    doSubmit = false;
+                    document.getElementById('fnameerr').innerHTML = "First Name is required";
+                } else if (!(/^[a-zA-Z]+$/.test(fname))) {
+                    doSubmit = false;
+                    document.getElementById('fnameerr').innerHTML = "First Name should only contain characters";
+                } else {
+                    document.getElementById('fnameerr').innerHTML = "";
+                }
+                if (sname === "" || sname === null) {
+                    doSubmit = false;
+                    document.getElementById('snameerr').innerHTML = "Surname is required";
+                } else if (!/^[a-zA-Z]+$/.test(sname)) {
+                    doSubmit = false;
+                    document.getElementById('snameerr').innerHTML = "Surname should only contain characters";
+                } else {
+                    document.getElementById('snameerr').innerHTML = "";
+                }
+                if (mobile === "" || mobile === null) {
+                    doSubmit = false;
+                    document.getElementById('mobileerr').innerHTML = "Mobile Number is required";
+                } else if (!/^[+](?=.*[0-9])$/.test(mobile) && !mobile.startsWith('+91')) {
+                    doSubmit = false;
+                    document.getElementById('mobileerr').innerHTML = "Mobile Number should only contain numbers and start with +91";
+                } else if (mobile.length < 13 || mobile.length > 13) {
+                    doSubmit = false;
+                    document.getElementById('mobileerr').innerHTML = "Mobile Number should only be of 10 letters";
+                } else {
+                    document.getElementById('mobileerr').innerHTML = "";
+                }
+                if (email === "" || email === null) {
+                    doSubmit = false;
+                    document.getElementById('emailerr').innerHTML = "Email address is required";
+                }
+                else if (!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+                    doSubmit = false;
+                    document.getElementById('emailerr').innerHTML = "Invalid email address";
+                } else {
+                    document.getElementById('emailerr').innerHTML = "";
+                }
+                if (pwd === "" || pwd === null){
+                    doSubmit = false;
+                    document.getElementById('pwderr').innerHTML = "Password is required";
+                } else if (!/^(?=^.{8}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$/.test(pwd)) {
+                    doSubmit = false;
+                    document.getElementById('pwderr').innerHTML = "Password must contain atleast one uppercase character, at least one lowercase character, at least onenumeric character, at least one special character like !@#$%ˆ&*() and should be 8characters in length.";
+                } else {
+                    document.getElementById('pwderr').innerHTML = "";
+                }
+                if (day === "" || day === null) {
+                    doSubmit = false;
+                    document.getElementById('dayerr').innerHTML = "Date is required";
+                } else {
+                    document.getElementById('dayerr').innerHTML = "";
+                }
+                if (month === "" || month === null) {
+                    doSubmit = false;
+                    document.getElementById('montherr').innerHTML = "Month is required";
+                } else {
+                    document.getElementById('montherr').innerHTML = "";
+                }
+                if (year === "" || year === null) {
+                    doSubmit = false;
+                    document.getElementById('yearerr').innerHTML = "Year is required";
+                } else {
+                    document.getElementById('yearerr').innerHTML = "";
+                }
+                if ((gender[0].value === "" || gender[0].getAttribute('value') === null) && (gender[1].value === "" || gender[0].getAttribute('value') === null)) {
+                    doSubmit = false;
+                    document.getElementById('gendererr').innerHTML = "Gender is required";
+                } else {
+                    document.getElementById('gendererr').innerHTML = "";
+                }
+
+                if(doSubmit === false){
+                    event.preventDefault();
+                } else {
+					alert("Submitted successfully");
+				}
+            }
+        </script>
+        <title>Personal details form</title>
+    </head>
+    <body bgcolor="#e8f5e9">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <form id="myForm" enctype="application/json" onsubmit="validate(event)" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <h4>Fill in your personal details</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="first_name" name="fname" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                                <div id="fnameerr" class="red err"></div>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="last_name" name="sname" type="text" class="validate">
+                                <label for="last_name">Surname</label>
+                                <div id="snameerr" class="red err"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="mobile" name="mobile" type="text" class="validate">
+                                <label for="mobile">Mobile Number</label>
+                                <div id="mobileerr" class="red err"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" name="email" type="text" class="validate">
+                                <label for="email">Email</label>
+                                <div id="emailerr" class="red err"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" name="pwd" type="password" class="validate">
+                                <label for="password">Password</label>
+                                <div id="pwderr" class="red err"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Date of Birth</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m4">
+                                <select name="day" id="day">
+                                    <option value="" disabled selected>Choose a date</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                </select>
+                                <label for="day">Date</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <select name="month" id="month">
+                                    <option value="" disabled selected>Choose a month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                                <label for="month">Month</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <select name="year" id="year">
+                                    <option value="" disabled selected>Choose a year</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1995">1995</option>
+                                </select>
+                                <label for="year">Year</label>
+                            </div>
+                            <script>
+                                var elem = document.querySelector('#day');
+                                var instance = M.FormSelect.init(elem);
+                                elem = document.querySelector('#month');
+                                instance = M.FormSelect.init(elem);
+                                elem = document.querySelector('#year');
+                                instance = M.FormSelect.init(elem);
+                            </script>
+                            <div class="col s12">
+                                <div id="dayerr" class="red err"></div>
+                                <div id="montherr" class="red err"></div>
+                                <div id="yearerr" class="red err"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>Gender</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>
+                                    <input value="Female" class="with-gap" name="gender" type="radio" checked />
+                                    <span>Female</span>
+                                </label>
+                            </div>
+                            <div class="input-field col s6">
+                                <label>
+                                    <input value="Male" class="with-gap" name="gender" type="radio" />
+                                    <span>Male</span>
+                                </label>
+                            </div>
+                            <div id="gendererr" class="red err"></div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large blue" type="submit" name="action">
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
